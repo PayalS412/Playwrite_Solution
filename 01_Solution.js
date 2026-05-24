@@ -1,6 +1,10 @@
 function normalizeJsBasicsLabel(label) {
-    return "js-basic-" + label.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    let x=label.replace(/[^a-zA-Z]/g, ' ')
+    if (x.trim() === '') {
+        return "js-basic";
+    }   
+    return "js-basic-" + x.trim().toLowerCase().replace(/\s+/g, '-');
 }
 
-let answer = normalizeJsBasicsLabel(" Login Button ");
-console.log(answer); // Output: "js-basic-login-button"  
+let answer= normalizeJsBasicsLabel("  ");
+console.log(answer);  
